@@ -16,6 +16,10 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False  # This turns off the exten
 app.secret_key = 'Finn'
 api = Api(app)
 
+@app.before_first_request
+def create_tables():
+    db.create_all()
+
 
 ## JWT creates endpoint /auth. When we calls /auth JWT gets the usernam and password ans sends it
 ## over to the authenticate function. The authenticate function returns a user, and the JWT class
