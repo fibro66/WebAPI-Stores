@@ -13,7 +13,8 @@ from resources.store import Store, StoreList
 
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get ('DATABASE_URL', 'sqlite:///data.db')
+##app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get ('DATABASE_URL', 'sqlite:///data.db')
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get ('sqlite:///data.db')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False  # This turns off the extension Flask-sql alchemy only
 app.secret_key = 'Finn'
 api = Api(app)
